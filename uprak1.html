@@ -11,7 +11,38 @@
 
 
     <script>
-        
+           var pilih = confirm("Apakah Anda Ingin Cek Pengiriman Barang ? Silakan Klik OK Untuk Melanjutkan")
+        if(pilih == "OK" || "Ok" ){
+           var km = "km"
+           var kg = "kg"
+           var a = prompt("Masukkan Nama Pengirim")
+           var b = prompt("Masukkan Nama Penerima")
+           var c = prompt("Jarak Pengiriman")
+           var d = prompt("Alamat Penerima")
+           var e = prompt("Jenis Barang")
+           var f = prompt("Berat Barang")
+           var biaya_per_km = c*1*10000
+           var biaya_per_kg = f*1*5000
+           var diskon1 = biaya_per_km*10/100
+           var diskon2 = biaya_per_kg*5/100
+           var biaya_diskon = diskon1+diskon2
+           var biaya_jarak = biaya_per_km-diskon1
+           var biaya_berat = biaya_per_kg-diskon2
+           var biaya_total = biaya_jarak+biaya_berat
+
+           
+           document.write("<b>Penerimaan Barang Jasa Keju Joget</b> <br>")
+           document.write("Nama Pengirim : ", a, "<br>")
+           document.write("Nama Penerima : ", b, "<br>")
+           document.write("Jarak Pengiriman : ", c, km, "<br>")
+           document.write("Alamat Penerima : ", d, "<br>")
+           document.write("Jenis Barang : ", e, "<br>")
+           document.write("Berat Barang : ", f, kg, "<br>")
+           document.write("Total Diskon: ", biaya_diskon, "<br>")
+           document.write("Total Biaya Jarak: ", biaya_jarak, "<br>")
+           document.write("Total Biaya Berat: ", biaya_berat, "<br>")
+           document.write("Total Biaya: ", biaya_total, "<br>")
+        }
     </script>
 </body>
 </html>
