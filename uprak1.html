@@ -11,38 +11,49 @@
 
 
     <script>
-           var pilih = confirm("Apakah Anda Ingin Cek Pengiriman Barang ? Silakan Klik OK Untuk Melanjutkan")
-        if(pilih == "OK" || "Ok" ){
-           var km = "km"
-           var kg = "kg"
-           var a = prompt("Masukkan Nama Pengirim")
-           var b = prompt("Masukkan Nama Penerima")
-           var c = prompt("Jarak Pengiriman")
-           var d = prompt("Alamat Penerima")
-           var e = prompt("Jenis Barang")
-           var f = prompt("Berat Barang")
-           var biaya_per_km = c*1*10000
-           var biaya_per_kg = f*1*5000
-           var diskon1 = biaya_per_km*10/100
-           var diskon2 = biaya_per_kg*5/100
-           var biaya_diskon = diskon1+diskon2
-           var biaya_jarak = biaya_per_km-diskon1
-           var biaya_berat = biaya_per_kg-diskon2
-           var biaya_total = biaya_jarak+biaya_berat
+         var start = confirm("Apakah Anda Ingin Cek Pengiriman Barang? Klik OK Untuk Melanjutkan")
+        
+         var pengirim = prompt('Masukkan Nama Pengirim')
+         document.write('Nama Pengirim :', pengirim, '<br>')
 
-           
-           document.write("<b>Penerimaan Barang Jasa Keju Joget</b> <br>")
-           document.write("Nama Pengirim : ", a, "<br>")
-           document.write("Nama Penerima : ", b, "<br>")
-           document.write("Jarak Pengiriman : ", c, km, "<br>")
-           document.write("Alamat Penerima : ", d, "<br>")
-           document.write("Jenis Barang : ", e, "<br>")
-           document.write("Berat Barang : ", f, kg, "<br>")
-           document.write("Total Diskon: ", biaya_diskon, "<br>")
-           document.write("Total Biaya Jarak: ", biaya_jarak, "<br>")
-           document.write("Total Biaya Berat: ", biaya_berat, "<br>")
-           document.write("Total Biaya: ", biaya_total, "<br>")
-        }
+         var penerima = prompt('Masukkan Nama Penerima')
+         document.write('Nama Penerima :', penerima, '<br>')
+
+         var jarak = prompt('Masukan Jarak Pengiriman')
+         document.write('Jarak Pegiriman :', jarak, 'km<br>')
+
+         var alamat = prompt('Masukan Alamat Penerima')
+         document.write('Alamat Penerima :', alamat, '<br>')
+
+         var jenis = prompt('Masukan Jenis Barang')
+         document.write('Jenis Barang :', jenis, '<br>')
+
+         var berat = prompt('Masukan Berat Barang')
+         document.write('Berat Barang :', berat, 'kg<br>')
+
+         var biaya_jarak = jarak*10000
+         var diskon1 = ""
+         if (biaya_jarak >= 50000) {
+            diskon1 = biaya_jarak*0.1
+         } else {
+            diskon1 = 0
+         }
+
+         var biaya_berat = berat*5000
+         var diskon2 = ""
+         if (biaya_berat >= 100000) {
+            diskon2 = biaya_berat*0.05
+         } else{ 
+            diskon2 = 0
+         }
+
+         var total_diskon = diskon1 + diskon2;
+         var total_harga = (biaya_jarak + biaya_berat) - total_diskon;
+
+         document.write('<b> Diskon Jarak</b> =' + diskon1 + '<br>')
+         document.write('<b> Diskon Berat</b> =' + diskon2 + '<br>')
+         document.write('<b> Total Diskon</b> =' + total_diskon + '<br>')
+         document.write('<b> Harga Total</b> =' + total_harga + '<br>')
     </script>
 </body>
 </html>
