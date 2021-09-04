@@ -18,6 +18,8 @@
 
         body {
             background-image: url(https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size: cover;
+            height: 100%
         }
     </style>
 </head>
@@ -88,7 +90,21 @@
         </div>
     </div>
 
-    <div class="container " id="containerHasil" style="margin-top: -50%;">
+    <div class="container "  style="margin-top: 5%;">
+        <table class="table mt-4" border="1">
+            <thead>
+              <tr>
+                <th scope="col">Nama Buku</th>
+                <th scope="col">Nama Peminjam</th>
+                <th scope="col">No HP</th>
+                <th scope="col">Tanggal Peminjaman</th>
+                <th scope="col">Tanggal Pengembalian</th>
+              </tr>
+            </thead>
+            <tbody id="containerHasil" >
+             
+            </tbody>
+          </table>
 
     </div>
 
@@ -114,7 +130,7 @@
         function showListProduk() {
             listproduk.innerHTML = ''
             for (let i = 0; i < namabarang.length; i++) {
-                listproduk.innerHTML += '<div class="card float-right mr-3 mb-3 bg-dark text-white" style="width: 8rem;">' +
+                listproduk.innerHTML += '<div class="card float-left mr-3 mb-3 bg-dark text-white" style="width: 8rem;">' +
                     '<img src=' + gambarbarang[i] + ' alt="...">' +
                     ' <div class="card-body">' +
                     '<h5 class="card-title">' + namabarang[i] + '</h5>' +
@@ -163,12 +179,9 @@
                                 <input type="teks" class="form-control" id="id_namasiswa"
                                     placeholder="Masukkan Nama Peminjam">
 
-                                <label for="idpeminjam">ID Peminjam</label>
-                                <input type="teks" class="form-control" id="id" placeholder="Masukkan ID Peminjam">
-
-                                <label for="alamat">Alamat</label>
-                                <textarea class="form-control" id="id_alamat" placeholder="Masukkan Alamat Peminjam"
-                                    rows="3"></textarea>
+                                    <label for="nohp">No HP</label>
+                                <input type="number" class="form-control" id="id_nohp"
+                                    placeholder="Masukkan No HP Peminjam">
 
                                 <label for="tglpeminjaman">Tanggal Peminjaman</label>
                                 <input type="date" class="form-control" id="id_tglpeminjaman">
@@ -194,23 +207,19 @@
          }
         function pinjamanbuku(id4) {
             var nama = document.getElementById("id_namasiswa").value;
-            var id = document.getElementById("id").value;
-            var alamat = document.getElementById("id_alamat").value;
+            var nohp = document.getElementById("id_nohp").value;
             var tglpeminjaman = document.getElementById("id_tglpeminjaman").value;
             var tglpengembalian = document.getElementById("id_tglpengembalian").value;
 
            var containerHasil = document.getElementById("containerHasil");
            containerHasil.innerHTML = "";
-           containerHasil.innerHTML = `<div class="card text-white bg-dark" style="width: 18rem;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${namabarang_keranjang[id4]}</h5>
-                                                <h6 class="card-subtitle mb-2 text-muted">${nama}</h6>
-                                                <p class="card-text">${id}</p>
-                                                <p class="card-text">${alamat}</p>
-                                                <p class="card-text">${tglpeminjaman}</p>
-                                                <p class="card-text">${tglpengembalian}</p>
-                                            </div>
-                                            </div>`;
+           containerHasil.innerHTML = `<tr>
+                    <td>${namabarang_keranjang[id4]}</td>
+                    <td>${nama}</td>
+                    <td>${nohp}</td>
+                    <td>${tglpeminjaman}</td>
+                    <td>${tglpengembalian}</td>
+                </tr>`;
         }
 
         
